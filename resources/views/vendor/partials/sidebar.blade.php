@@ -18,6 +18,14 @@
             <span>Dashboard</span></a>
     </li>
 
+        <!-- Nav Item - Jasa -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('vendor.jasas.index') }}">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Jasa Vendor</span>
+            </a>
+        </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 </ul>

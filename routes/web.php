@@ -74,5 +74,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['auth', 'role:vendor'])->prefix('vendor')->name('vendor.')->group(function () {
         // Dashboard route you already have
         Route::get('/dashboard', [App\Http\Controllers\VendorController::class, 'dashboard'])->name('dashboard');
+        
+        //jasa
+        Route::resource('jasas', \App\Http\Controllers\Vendor\JasaController::class);
+
     });
 require __DIR__.'/auth.php';
