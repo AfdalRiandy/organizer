@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-user-graduate"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Dashboard Penyuluh</div>
+        <div class="sidebar-brand-text mx-3">Dashboard vendor</div>
     </a>
 
     <!-- Divider -->
@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('penyuluh.dashboard') }}">
+        <a class="nav-link" href="{{ route('vendor.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>

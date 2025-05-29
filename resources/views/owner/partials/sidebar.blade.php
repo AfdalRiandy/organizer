@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-user"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Operator</div>
+        <div class="sidebar-brand-text mx-3">owner</div>
     </a>
 
     <!-- Divider -->
@@ -13,24 +13,16 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('operator.dashboard') }}">
+        <a class="nav-link" href="{{ route('owner.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
         <!-- Nav Item - User Management -->
-        <li class="nav-item {{ request()->routeIs('operator.users.*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('operator.users.index') }}">
+        <li class="nav-item {{ request()->routeIs('owner.users.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('owner.users.index') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>User Management</span></a>
-        </li>
-
-        <!-- Nav Item - Article Management -->
-        <li class="nav-item {{ request()->routeIs('operator.artikel.*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('operator.artikel.index') }}">
-                <i class="fas fa-fw fa-newspaper"></i>
-                <span>Manajemen Artikel</span>
-            </a>
         </li>
 
     <!-- Divider -->

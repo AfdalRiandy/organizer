@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
         // Dashboard route you already have
         Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+        
+        //paket
+        Route::resource('pakets', \App\Http\Controllers\Admin\PaketController::class);
+
     });
 
     // pelanggan

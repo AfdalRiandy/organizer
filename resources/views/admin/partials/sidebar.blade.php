@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-user"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Dashboard Petani</div>
+        <div class="sidebar-brand-text mx-3">Dashboard admin</div>
     </a>
 
     <!-- Divider -->
@@ -13,16 +13,16 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('petani.dashboard') }}">
+        <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Nav Item - Articles -->
-    <li class="nav-item {{ request()->routeIs('petani.artikel.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('petani.artikel.index') }}">
-            <i class="fas fa-fw fa-newspaper"></i>
-            <span>Artikel</span>
+    <!-- Nav Item - paket -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.pakets.index') }}">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Manajemen Paket</span>
         </a>
     </li>
     

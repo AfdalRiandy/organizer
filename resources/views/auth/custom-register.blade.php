@@ -113,7 +113,7 @@
                         <div class="logo-wrapper">
                             <!-- Replace with your actual logo -->
                             <img src="{{ asset('assets/img/undraw_posting_photo.svg') }}" alt="Logo" onerror="this.src='{{ asset('assets/img/undraw_rocket.svg') }}'; this.style.maxWidth='60%';">
-                            <h1 class="logo-title">Hama Check Management</h1>
+                            <h1 class="logo-title">Organizer Management</h1>
                             <p class="logo-subtitle">Join our community and participate </p>
                         </div>
                     </div>

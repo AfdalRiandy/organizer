@@ -6,6 +6,9 @@
     <title>EventMaster - Aplikasi Pengelolaan Event Organizer</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,8 +36,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center">
-                        <img src="{{ asset('assets/img/logo.png') }}" alt="EventMaster Logo" class="h-10 w-auto">
-                        <span class="ml-2 text-xl font-bold text-primary">Event<span class="text-gray-800">Master</span></span>
+                        <span class="text-2xl font-bold text-primary">Event<span class="text-gray-800">Master</span></span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
@@ -60,7 +62,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-gray-50 to-gray-100 py-20">
+    <section class="bg-gradient-to-b from-gray-50 to-gray-100 py-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2 space-y-6">
@@ -77,9 +79,9 @@
                     </div>
                     <div class="flex items-center space-x-4 pt-6">
                         <div class="flex -space-x-2">
-                            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="User">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="User">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="User">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="User">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="User">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=96&q=80" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="User">
                         </div>
                         <p class="text-sm text-gray-600">Bergabung dengan <span class="font-medium">3,000+</span> event organizer</p>
                     </div>
@@ -88,15 +90,39 @@
                     <div class="relative">
                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary-light rounded-full opacity-20 blur-xl"></div>
                         <div class="absolute -bottom-8 -right-8 w-40 h-40 bg-primary-dark rounded-full opacity-20 blur-xl"></div>
-                        <img src="{{ asset('assets/img/hero.png') }}" alt="EventMaster Hero" class="relative z-10 rounded-2xl shadow-2xl w-full">
+                        <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="EventMaster Hero" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-[500px]">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-primary mb-2">3,000+</p>
+                    <p class="text-gray-600">Event Organizer</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-primary mb-2">15,000+</p>
+                    <p class="text-gray-600">Event Terselenggara</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-primary mb-2">99%</p>
+                    <p class="text-gray-600">Tingkat Kepuasan</p>
+                </div>
+                <div class="p-6">
+                    <p class="text-4xl font-bold text-primary mb-2">24/7</p>
+                    <p class="text-gray-600">Dukungan Teknis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
-    <section class="py-20">
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Fitur Utama EventMaster</h2>
@@ -150,8 +176,69 @@
         </div>
     </section>
 
+    <!-- Event Types Section with Image Gallery -->
+    <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Kelola Berbagai Jenis Event</h2>
+                <p class="text-xl text-gray-600">EventMaster mendukung beragam jenis event untuk kebutuhan bisnis Anda</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Konferensi" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Konferensi</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gala Dinner" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Gala Dinner</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Workshop" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Workshop</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Festival" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Festival</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pernikahan" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Pernikahan</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Seminar" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Seminar</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Exhibition" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Exhibition</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Konser" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <p class="text-white font-medium p-4">Konser</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Apa Kata Pelanggan Kami</h2>
@@ -159,7 +246,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 flex">
                             <i class="fas fa-star"></i>
@@ -171,14 +258,14 @@
                     </div>
                     <p class="text-gray-600 mb-6">"EventMaster telah membantu perusahaan kami mengorganisir puluhan event korporat dengan sangat efisien. Sangat direkomendasikan!"</p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Testimonial" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
                             <h4 class="font-bold">Siti Nurhaliza</h4>
                             <p class="text-gray-500 text-sm">CEO, Kreasi Event Indonesia</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 flex">
                             <i class="fas fa-star"></i>
@@ -190,14 +277,14 @@
                     </div>
                     <p class="text-gray-600 mb-6">"Fitur kolaborasi tim membuat koordinasi menjadi jauh lebih mudah. Semua tim saya bisa terhubung dengan baik meski berbeda lokasi."</p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Testimonial" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
                             <h4 class="font-bold">Budi Hartono</h4>
                             <p class="text-gray-500 text-sm">Event Manager, Spectacular Events</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300">
                     <div class="flex items-center mb-4">
                         <div class="text-yellow-400 flex">
                             <i class="fas fa-star"></i>
@@ -209,7 +296,7 @@
                     </div>
                     <p class="text-gray-600 mb-6">"Sistem laporan analitik sangat membantu kami mengoptimalkan strategi event berikutnya. Data yang disajikan sangat komprehensif."</p>
                     <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Testimonial" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
                             <h4 class="font-bold">Anita Wijaya</h4>
                             <p class="text-gray-500 text-sm">Direktur, Global Events Indonesia</p>
@@ -221,14 +308,19 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
+    <section class="py-24 bg-gradient-to-r from-primary to-primary-dark text-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap Mengelola Event Secara Profesional?</h2>
                 <p class="text-xl mb-8 text-white text-opacity-90">Bergabunglah dengan ribuan event organizer yang telah menggunakan EventMaster</p>
-                <a href="{{ route('register') }}" class="inline-block px-8 py-4 bg-white text-primary font-bold rounded-lg shadow-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
-                    Daftar Gratis Sekarang
-                </a>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="{{ route('register') }}" class="inline-block px-8 py-4 bg-white text-primary font-bold rounded-lg shadow-lg hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300">
+                        Daftar Gratis Sekarang
+                    </a>
+                    <a href="#" class="inline-block px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transform hover:-translate-y-1 transition duration-300">
+                        Jadwalkan Demo
+                    </a>
+                </div>
                 <p class="mt-6 text-white text-opacity-80">Tanpa kartu kredit. Akses fitur premium gratis selama 14 hari.</p>
             </div>
         </div>
