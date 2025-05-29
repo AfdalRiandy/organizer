@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
         
         //paket
         Route::resource('pakets', \App\Http\Controllers\Admin\PaketController::class);
+        //galeri
+        Route::resource('galeris', \App\Http\Controllers\Admin\GaleriController::class);
 
     });
 

@@ -25,6 +25,14 @@
             <span>Manajemen Paket</span>
         </a>
     </li>
+
+    <!-- Nav Item - galeri -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.galeris.index') }}">
+            <i class="fas fa-fw fa-images"></i>
+            <span>Manajemen Galeri</span>
+        </a>
+    </li>
     
     <!-- Divider -->
     <hr class="sidebar-divider">
