@@ -25,6 +25,20 @@
                 <span>Daftar Paket</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('pelanggan.vendors.index') }}">
+                <i class="fas fa-fw fa-handshake"></i>
+                <span>Layanan Vendor</span>
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('pelanggan.vendors.bookings') }}">
+                <i class="fas fa-fw fa-receipt"></i>
+                <span>Pesanan Vendor</span>
+            </a>
+        </li>
     
         <!-- Nav Item - Pesanan -->
         <li class="nav-item">

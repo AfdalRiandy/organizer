@@ -32,6 +32,13 @@ class Order extends Model
         return $this->belongsTo(Paket::class);
     }
 
+    public function jasas()
+    {
+        return $this->belongsToMany(Jasa::class, 'order_jasa')
+                    ->withPivot('status', 'catatan')
+                    ->withTimestamps();
+    }
+
     public function getStatusBadgeAttribute()
     {
         return match($this->status) {

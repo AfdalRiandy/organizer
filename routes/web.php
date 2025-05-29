@@ -49,6 +49,8 @@ Route::middleware('auth')->group(function () {
         //galeri
         Route::resource('galeris', \App\Http\Controllers\Admin\GaleriController::class);
 
+        //vendor
+        Route::patch('/orders/{order}/vendor-services/{jasa}', [App\Http\Controllers\Admin\OrderController::class, 'updateVendorStatus'])->name('orders.update-vendor-status');
         // Order management routes
         Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('orders.index');
         Route::get('/orders/{order}', [App\Http\Controllers\Admin\OrderController::class, 'show'])->name('orders.show');
@@ -68,7 +70,13 @@ Route::middleware('auth')->group(function () {
      // Orders routes
      Route::get('/orders', [App\Http\Controllers\Pelanggan\PaketController::class, 'orders'])->name('orders.index');
      Route::get('/orders/{order}', [App\Http\Controllers\Pelanggan\PaketController::class, 'orderDetail'])->name('orders.show');
- });
+    
+     // Vendor services routes
+    Route::get('/vendors', [App\Http\Controllers\Pelanggan\VendorController::class, 'index'])->name('vendors.index');
+    Route::get('/vendors/{jasa}', [App\Http\Controllers\Pelanggan\VendorController::class, 'show'])->name('vendors.show');
+    Route::post('/vendors/add-to-order', [App\Http\Controllers\Pelanggan\VendorController::class, 'addToOrder'])->name('vendors.add-to-order');
+    Route::get('/vendor-bookings', [App\Http\Controllers\Pelanggan\VendorController::class, 'bookings'])->name('vendors.bookings');
+    });
 
     // vendor
     Route::middleware(['auth', 'role:vendor'])->prefix('vendor')->name('vendor.')->group(function () {
@@ -78,5 +86,9 @@ Route::middleware('auth')->group(function () {
         //jasa
         Route::resource('jasas', \App\Http\Controllers\Vendor\JasaController::class);
 
-    });
+        // Order routes
+        Route::get('/bookings', [App\Http\Controllers\Vendor\OrderController::class, 'index'])->name('bookings.index');
+        Route::get('/bookings/{jasa}/{order}', [App\Http\Controllers\Vendor\OrderController::class, 'show'])->name('bookings.show');
+        });
+        
 require __DIR__.'/auth.php';

@@ -25,7 +25,14 @@
                 <span>Jasa Vendor</span>
             </a>
         </li>
-
+    
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('vendor.bookings.index') }}">
+                <i class="fas fa-fw fa-calendar-check"></i>
+                <span>Pemesanan Jasa</span>
+            </a>
+        </li>
+        
     <!-- Divider -->
     <hr class="sidebar-divider">
 </ul>

@@ -67,6 +67,75 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Vendor Services Section -->
+            @if(count($order->jasas) > 0)
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Layanan Vendor Tambahan</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nama Vendor</th>
+                                    <th>Layanan</th>
+                                    <th>Harga</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($order->jasas as $jasa)
+                                    <tr>
+                                        <td>{{ $jasa->nama_vendor }} ({{ $jasa->user->name }})</td>
+                                        <td>{{ $jasa->nama_jasa }}</td>
+                                        <td>{{ $jasa->formatted_price }}</td>
+                                        <td>
+                                            <span class="badge badge-{{ $jasa->pivot->status == 'menunggu' ? 'warning' : ($jasa->pivot->status == 'disetujui' ? 'success' : 'danger') }}">
+                                                {{ ucfirst($jasa->pivot->status) }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @if($jasa->pivot->status == 'menunggu')
+                                                <!-- Only show both buttons if status is still waiting -->
+                                                <form action="{{ route('admin.orders.update-vendor-status', ['order' => $order->id, 'jasa' => $jasa->id]) }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="status" value="disetujui">
+                                                    <button type="submit" class="btn btn-sm btn-success">
+                                                        <i class="fas fa-check"></i> Setujui
+                                                    </button>
+                                                </form>
+                                                <form action="{{ route('admin.orders.update-vendor-status', ['order' => $order->id, 'jasa' => $jasa->id]) }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="status" value="ditolak">
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="fas fa-times"></i> Tolak
+                                                    </button>
+                                                </form>
+                                            @elseif($jasa->pivot->status == 'disetujui')
+                                                <!-- Only show disabled approval button if already approved -->
+                                                <button class="btn btn-sm btn-success disabled">
+                                                    <i class="fas fa-check"></i> Disetujui
+                                                </button>
+                                            @elseif($jasa->pivot->status == 'ditolak')
+                                                <!-- Only show disabled reject button if already rejected -->
+                                                <button class="btn btn-sm btn-danger disabled">
+                                                    <i class="fas fa-times"></i> Ditolak
+                                                </button>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
         <div class="col-lg-4">
             <div class="card shadow mb-4">

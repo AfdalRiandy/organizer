@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pelanggan;
 use App\Http\Controllers\Controller;
 use App\Models\Paket;
 use App\Models\Order;
+use App\Models\Jasa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,7 +81,7 @@ class PaketController extends Controller
     }
 
     /**
-     * Show detail of an order.
+     * Show detail of an order with vendor services.
      */
     public function orderDetail(Order $order)
     {
@@ -88,6 +89,29 @@ class PaketController extends Controller
             abort(403);
         }
         
-        return view('pelanggan.orders.show', compact('order'));
+        // Get available vendor services that can be added
+        $availableVendorServices = Jasa::where('is_active', true)->get();
+        
+        return view('pelanggan.orders.show', compact('order', 'availableVendorServices'));
+    }
+
+    /**
+     * Remove vendor service from order.
+     */
+    public function removeVendorService(Request $request, Order $order, Jasa $jasa)
+    {
+        if ($order->user_id !== Auth::id()) {
+            abort(403);
+        }
+
+        // Check if the service is in pending status
+        $pivotData = $order->jasas()->where('jasa_id', $jasa->id)->first()->pivot;
+        if ($pivotData->status !== 'menunggu') {
+            return back()->with('error', 'Hanya jasa dengan status menunggu yang dapat dihapus.');
+        }
+
+        $order->jasas()->detach($jasa->id);
+        
+        return back()->with('success', 'Jasa vendor berhasil dihapus dari pesanan Anda.');
     }
 }

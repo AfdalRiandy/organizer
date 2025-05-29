@@ -27,6 +27,16 @@ class Jasa extends Model
     }
 
     /**
+     * Get the orders that have this service.
+     */
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_jasa')
+                    ->withPivot('status', 'catatan')
+                    ->withTimestamps();
+    }
+
+    /**
      * Format the price as Indonesian Rupiah
      */
     public function getFormattedPriceAttribute()

@@ -22,6 +22,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+        $order->load('jasas.user');
         return view('admin.orders.show', compact('order'));
     }
 
@@ -40,5 +41,22 @@ class OrderController extends Controller
 
         return redirect()->route('admin.orders.index')
                          ->with('success', 'Status pesanan berhasil diperbarui.');
+    }
+
+    /**
+     * Update vendor service status for an order.
+     */
+    public function updateVendorStatus(Request $request, Order $order, $jasa_id)
+    {
+        $request->validate([
+            'status' => 'required|in:menunggu,disetujui,ditolak'
+        ]);
+
+        $order->jasas()->updateExistingPivot($jasa_id, [
+            'status' => $request->status
+        ]);
+
+        return redirect()->route('admin.orders.show', $order->id)
+                         ->with('success', 'Status layanan vendor berhasil diperbarui.');
     }
 }

@@ -6,11 +6,25 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Detail Pesanan</h1>
-        <a href="{{ route('pelanggan.orders.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
-            <i class="fas fa-arrow-left fa-sm text-white-50"></i> Kembali
-        </a>
+        <h1 class="h3 mb-0 text-gray-800">Detail Pesanan #{{ $order->id }}</h1>
+        <div>
+            <a href="{{ route('pelanggan.orders.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm mr-2">
+                <i class="fas fa-arrow-left fa-sm text-white-50"></i> Kembali
+            </a>
+            <a href="{{ route('pelanggan.vendors.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
+                <i class="fas fa-plus fa-sm text-white-50"></i> Tambah Layanan Vendor
+            </a>
+        </div>
     </div>
+
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
 
     <div class="row">
         <div class="col-lg-8">
@@ -34,7 +48,7 @@
                             <td>{{ $order->event_date->format('d M Y (l)') }}</td>
                         </tr>
                         <tr>
-                            <th>Harga</th>
+                            <th>Harga Paket</th>
                             <td>{{ $order->paket->formatted_price }}</td>
                         </tr>
                         <tr>
@@ -52,6 +66,39 @@
                         </tr>
                         @endif
                     </table>
+
+                    <!-- Vendor Services Section -->
+                    @if(count($order->jasas) > 0)
+                        <div class="mt-4 pt-4 border-top">
+                            <h5 class="font-weight-bold mb-3">Layanan Vendor Tambahan:</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Vendor</th>
+                                            <th>Layanan</th>
+                                            <th>Harga</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($order->jasas as $jasa)
+                                            <tr class="{{ $jasa->pivot->status == 'menunggu' ? 'bg-warning-light' : ($jasa->pivot->status == 'disetujui' ? 'bg-success-light' : 'bg-danger-light') }}">
+                                                <td>{{ $jasa->nama_vendor }}</td>
+                                                <td>{{ $jasa->nama_jasa }}</td>
+                                                <td>{{ $jasa->formatted_price }}</td>
+                                                <td>
+                                                    <span class="badge badge-{{ $jasa->pivot->status == 'menunggu' ? 'warning' : ($jasa->pivot->status == 'disetujui' ? 'success' : 'danger') }}">
+                                                        {{ ucfirst($jasa->pivot->status) }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -107,3 +154,17 @@
     </div>
 </div>
 @endsection
+
+@push('styles')
+<style>
+    .bg-success-light {
+        background-color: rgba(40, 167, 69, 0.1);
+    }
+    .bg-warning-light {
+        background-color: rgba(255, 193, 7, 0.1);
+    }
+    .bg-danger-light {
+        background-color: rgba(220, 53, 69, 0.1);
+    }
+</style>
+@endpush
