@@ -49,13 +49,26 @@ Route::middleware('auth')->group(function () {
         //galeri
         Route::resource('galeris', \App\Http\Controllers\Admin\GaleriController::class);
 
-    });
+        // Order management routes
+        Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('orders.index');
+        Route::get('/orders/{order}', [App\Http\Controllers\Admin\OrderController::class, 'show'])->name('orders.show');
+        Route::patch('/orders/{order}/status', [App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('orders.update-status');
+ });
 
     // pelanggan
     Route::middleware(['auth', 'role:pelanggan'])->prefix('pelanggan')->name('pelanggan.')->group(function () {
         // Dashboard route you already have
         Route::get('/dashboard', [App\Http\Controllers\PelangganController::class, 'dashboard'])->name('dashboard');
-    });
+     
+        // Package routes
+     Route::get('/pakets', [App\Http\Controllers\Pelanggan\PaketController::class, 'index'])->name('pakets.index');
+     Route::get('/pakets/{paket}', [App\Http\Controllers\Pelanggan\PaketController::class, 'show'])->name('pakets.show');
+     Route::post('/pakets/{paket}/book', [App\Http\Controllers\Pelanggan\PaketController::class, 'book'])->name('pakets.book');
+     
+     // Orders routes
+     Route::get('/orders', [App\Http\Controllers\Pelanggan\PaketController::class, 'orders'])->name('orders.index');
+     Route::get('/orders/{order}', [App\Http\Controllers\Pelanggan\PaketController::class, 'orderDetail'])->name('orders.show');
+ });
 
     // vendor
     Route::middleware(['auth', 'role:vendor'])->prefix('vendor')->name('vendor.')->group(function () {

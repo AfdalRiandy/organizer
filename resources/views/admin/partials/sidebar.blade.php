@@ -34,6 +34,14 @@
         </a>
     </li>
     
+    <!-- Nav Item - Orders -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.orders.index') }}">
+            <i class="fas fa-fw fa-shopping-cart"></i>
+            <span>Manajemen Pesanan</span>
+        </a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 </ul>

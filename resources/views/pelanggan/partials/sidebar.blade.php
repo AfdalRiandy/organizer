@@ -18,6 +18,22 @@
             <span>Dashboard</span></a>
     </li>
 
+        <!-- Nav Item - Paket -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('pelanggan.pakets.index') }}">
+                <i class="fas fa-fw fa-box"></i>
+                <span>Daftar Paket</span>
+            </a>
+        </li>
+    
+        <!-- Nav Item - Pesanan -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('pelanggan.orders.index') }}">
+                <i class="fas fa-fw fa-shopping-cart"></i>
+                <span>Pesanan Saya</span>
+            </a>
+        </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 </ul>
